@@ -112,7 +112,19 @@ public class CoolWeatherDB {
 		}
 		return list;
 	}
-
+	
+	/*
+	 * 存储县信息
+	 */
+	public void saveCountry(Country country) {
+		if (country != null) {
+			ContentValues values = new ContentValues();
+			values.put("country_name", country.getCountryName());
+			values.put("country_code", country.getCountryCode());
+			values.put("city_id", country.getCityId());
+			db.insert("country", null, values);
+		}
+	}
 	/*
 	 * 从从数据库读取某城市下所有的县信息
 	 */
